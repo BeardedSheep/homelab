@@ -22,7 +22,7 @@ spec:
         - image: cloudflare/cloudflared:latest
           name: cloudflared
 
-	  volumeMounts:
+      volumeMounts:
         - name: config
           mountPath: /etc/cloudflared/config
           readOnly: true
