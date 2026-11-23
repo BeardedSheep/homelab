@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: lldkbnts.beardedsheep.uk
+    - host: ldkbnts.beardedsheep.uk
       http:
         paths:
           - backend:
