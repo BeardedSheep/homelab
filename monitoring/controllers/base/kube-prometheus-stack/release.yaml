@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: kube-prometheus-stack
-      version: "93.4.x"
+      version: "93.x"
 
       sourceRef:
         kind: HelmRepository
@@ -28,18 +28,4 @@ spec:
           kind: PrometheusRule
   values:
     grafana:
-      adminPassword: mischa
-      ingress:
-        enabled: true
-        ingressClassName: traefik
-        hosts:
-          - grafana.beardedsheep.uk
-        path: /
-
-        ## TLS configuration for grafana Ingress
-        ## Secret must be manually created in the namespace
-        ##
-        tls:
-	        - secretName: grafana-tls-secret
-            hosts:
-              - grafana.beardedsheep.uk
+      adminPassword: password
