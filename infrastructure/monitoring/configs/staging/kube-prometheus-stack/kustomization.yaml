@@ -4,3 +4,4 @@ resources:
   - grafana-tls-secret.yaml
   - cloudflared.yaml
   - grafana-cloudflare-secret.yaml
+  - ingress.yaml
