@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: grafana.beardedsheep.uk
+    - host: gfkbntes.beardedsheep.uk
       http:
         paths:
           - backend:
