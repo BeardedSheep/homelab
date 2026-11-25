@@ -6,5 +6,5 @@ spec:
   ports:
     - port: 3000
   selector:
-    app: linkding
+    app: kube-prometheus-stack
   type: ClusterIP
