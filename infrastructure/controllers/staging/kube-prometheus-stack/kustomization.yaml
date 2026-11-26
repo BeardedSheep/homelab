@@ -3,3 +3,6 @@ kind: Kustomization
 namespace: monitoring
 resources:
   - ../../base/kube-prometheus-stack
+  - cloudflared.yaml
+  - grafana-tunnel-credentials.yaml
+  - ingress.yaml
