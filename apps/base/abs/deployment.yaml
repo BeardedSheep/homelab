@@ -32,10 +32,26 @@ spec:
 #          securityContext:
 #            allowPrivilegeEscalation: false
 
-#          volumeMounts:
-#            - name: linkding-data
-#              mountPath: /etc/linkding/data
-#      volumes:
-#        - name: linkding-data
-#          persistentVolumeClaim:
-#            claimName: linkding-data-pvc
+          volumeMounts:
+            - name: abs-config
+              mountPath: /config
+            - name: abs-metadata
+              mountPath: /metadata
+            - name: abs-audiobooks
+              mountPath: /audiobooks
+            - name: abs-podcats
+              mountPath: /podcasts
+
+      volumes:
+        - name: abs-config
+          persistentVolumeClaim:
+            claimName: abs-config
+        - name: abs-metadata
+          persistanceVolumeClaim:
+            claimName: abs-metadata
+        - name: abs-audiobooks
+          persistanceVolumeClaim:
+            claimName: abs-audiobooks
+        - name: abs-podcasts
+          persistanceVolumeClaim:
+            claimName: abs-podcasts
