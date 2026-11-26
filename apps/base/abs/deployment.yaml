@@ -39,7 +39,7 @@ spec:
               mountPath: /metadata
             - name: abs-audiobooks
               mountPath: /audiobooks
-            - name: abs-podcats
+            - name: abs-podcasts
               mountPath: /podcasts
 
       volumes:
