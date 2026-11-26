@@ -2,13 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: audiobookshelf
-  namespace: audiobookshelf
-  labels:
-    app: audiobookshelf
 spec:
-  replicas: 1          # Keep at 1: the app uses a SQLite database
-  strategy:
-    type: Recreate     # Stop the old pod before starting the new one
+  replica: 1
   selector:
     matchLabels:
       app: audiobookshelf
@@ -17,14 +12,30 @@ spec:
       labels:
         app: audiobookshelf
     spec:
-      # To run as a different user (compose "user: 1000:1000"), uncomment.
-      # If the app then can't bind port 80, set a PORT env var such as 8080
-      # and change containerPort to match.
-      # securityContext:
-      #   runAsUser: 1000
-      #   runAsGroup: 1000
-      #   fsGroup: 1000
+#      securityContext:
+#        fsGroup: 33 # www-data group ID
+#        runAsUser: 33 # www-data user ID
+#        runAsGroup: 33 # www-data group ID
+
       containers:
         - name: audiobookshelf
           image: ghcr.io/advplyr/audiobookshelf:2.38.0
-          imagePullPolicy: Always
+#          ports:
+#            - containerPort: 3005
+
+          envFrom:
+            - configMapRef:
+                name: audiobookshelf-configmap
+#            - secretRef:
+#                name: linkding-container-env
+
+#          securityContext:
+#            allowPrivilegeEscalation: false
+
+#          volumeMounts:
+#            - name: linkding-data
+#              mountPath: /etc/linkding/data
+#      volumes:
+#        - name: linkding-data
+#          persistentVolumeClaim:
+#            claimName: linkding-data-pvc
