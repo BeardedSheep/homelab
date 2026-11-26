@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: audiobookshelf
+  name: abs
 spec:
   replica: 1
   selector:
     matchLabels:
-      app: audiobookshelf
+      app: abs
   template:
     metadata:
       labels:
-        app: audiobookshelf
+        app: abs
     spec:
 #      securityContext:
 #        fsGroup: 33 # www-data group ID
@@ -18,14 +18,14 @@ spec:
 #        runAsGroup: 33 # www-data group ID
 
       containers:
-        - name: audiobookshelf
+        - name: abs
           image: ghcr.io/advplyr/audiobookshelf:2.38.0
-#          ports:
-#            - containerPort: 3005
+          ports:
+            - containerPort: 3005
 
           envFrom:
             - configMapRef:
-                name: audiobookshelf-configmap
+                name: linkding-configmap
 #            - secretRef:
 #                name: linkding-container-env
 

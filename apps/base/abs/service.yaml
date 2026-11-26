@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: audiobookshelf
+  name: bs
 spec:
   ports:
     - port: 3005
   selector:
-    app: audiobookshelf
+    app: abs
   type: ClusterIP
