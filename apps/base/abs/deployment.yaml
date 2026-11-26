@@ -12,10 +12,10 @@ spec:
       labels:
         app: abs
     spec:
-      securityContext:
-        fsGroup: 1000 # node group ID
-        runAsUser: 1000 # node user ID
-        runAsGroup: 1000 # node group ID
+#      securityContext:
+#        runAsUser: 1000 # node user ID
+#        runAsGroup: 1000 # node group ID
+#        fsGroup: 1000 # node group ID
 
       containers:
         - name: abs
@@ -29,8 +29,8 @@ spec:
 #            - secretRef:
 #                name: linkding-container-env
 
-          securityContext:
-            allowPrivilegeEscalation: false
+#          securityContext:
+#            allowPrivilegeEscalation: false
 
           volumeMounts:
             - name: abs-config
