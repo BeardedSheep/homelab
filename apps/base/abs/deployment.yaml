@@ -25,7 +25,7 @@ spec:
 
           envFrom:
             - configMapRef:
-                name: linkding-configmap
+                name: abs-configmap
 #            - secretRef:
 #                name: linkding-container-env
 
